@@ -8,7 +8,7 @@ export default function App() {
       <div className=" max-w-md w-full">
         <BrowserRouter>
           <Navbar />
-          <div className=" h-screen bg-red-800">
+          <div className=" h-screen">
             <Routes>
               <Route path="/" element={<Home />} />
             </Routes>

@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <header className=" flex items-center  justify-between  py-4 px-2 bg-sky-500 ">
-
+    <header className=" flex items-center  justify-between  py-4 px-2 ">
       <div className="">
         <Link to="/">
           <h1 className="font-bold text-4xl font-body">MOG</h1>
