@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 export default function App() {
   return (
     <div className="flex justify-center">
-      <div className=" max-w-md w-full">
+      <div className=" max-w-lg w-full">
         <BrowserRouter>
           <Navbar />
           <div className=" h-screen">

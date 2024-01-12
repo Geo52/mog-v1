@@ -7,6 +7,8 @@ export default function WorkoutForm() {
   const [weight, setWeight] = useState("");
   const [reps, setReps] = useState("");
   const [error, setError] = useState(null);
+  const [emptyFields, setEmptyFields] = useState([]);
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,6 +26,7 @@ export default function WorkoutForm() {
 
     if (!response.ok) {
       setError(json.error);
+      setEmptyFields(json.emptyFields)
     }
 
     if (response.ok) {
@@ -31,12 +34,14 @@ export default function WorkoutForm() {
       setExercise("");
       setWeight("");
       setReps("");
+      setEmptyFields([])
       console.log("new workout added", json);
       dispatch({type: 'CREATE_WORKOUT', payload: json})
     }
   };
   return (
-    <form className="grid" onSubmit={handleSubmit}>
+    <form className="grid my-4 mx-2" onSubmit={handleSubmit}>
+      
       <div className=" font-body text-xl">Add new workout</div>
 
       <label>Exercise</label>
@@ -44,20 +49,24 @@ export default function WorkoutForm() {
         type="text"
         onChange={(e) => setExercise(e.target.value)}
         value={exercise}
+        className={emptyFields.includes("exercise") ? ' outline outline-red-600' : 'outline'}
       />
 
       <label>Weight</label>
-      <input
+      <input 
         type="number"
         onChange={(e) => setWeight(e.target.value)}
         value={weight}
+        className={emptyFields.includes("weight") ? ' outline outline-red-600' : 'outline'}
+
       />
 
       <label>Reps</label>
-      <input
+      <input 
         type="number"
         onChange={(e) => setReps(e.target.value)}
         value={reps}
+        className={emptyFields.includes("reps") ? ' outline outline-red-600' : 'outline'}
       />
 
       <button>Submit</button>

@@ -14,8 +14,8 @@ export default function WorkoutDetails({ workout }) {
     }
   };
   return (
-    <div className="flex justify-between items-center bg-slate-300 rounded-lg">
-      <div className=" my-4 mx-2">
+    <div className="flex my-4 mx-2 justify-between items-center bg-slate-300 rounded-lg">
+      <div className="my-4 mx-2 ">
         <div className=" font-bold text-blue-700">{workout.exercise}</div>
         <p>
           <strong>Weight (lb): </strong>
