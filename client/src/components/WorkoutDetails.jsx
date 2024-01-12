@@ -1,5 +1,8 @@
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 
+// date fns
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+
 /* eslint-disable react/prop-types */
 export default function WorkoutDetails({ workout }) {
   const { dispatch } = useWorkoutsContext();
@@ -26,7 +29,7 @@ export default function WorkoutDetails({ workout }) {
           <strong>Reps: </strong>
           {workout.reps}
         </p>
-        <p>{workout.createdAt}</p>
+        <p>{formatDistanceToNow(new Date(workout.createdAt), {addSuffix: true})}</p>
       </div>
       <div>
         <button
